@@ -1,0 +1,104 @@
+.header_top
+  background: $color_gray
+  padding: .3rem
+  margin: 0
+  color: #ffffff
+  .link_top
+    @media(max-width:480px)
+      text-align: center
+  a
+    &.link_top
+      @media(max-width:480px)
+        background: #1565c0
+        font:
+          size: 2rem
+  div
+    text-align: right
+header
+  position: relative
+  .top
+    width: 100%
+    position: absolute
+    z-index: 99
+    row
+      margin-bottom: 0
+  img
+    width: 100%
+    margin-left: 1rem
+  nav
+    background: transparent
+    border: 0
+    box-shadow: none
+    .sidenav-close
+      display: none
+    .brand-logo
+      @media(max-width:760px)
+        display: none
+    .social,.contact
+      margin: 0 1rem
+      .icon
+        font:
+          size: 20px
+    ul
+      .user-infolist
+        display: none
+        .user-view
+          img
+            width: 90%
+        @media(max-width:960px)
+          display: block
+      li
+        a
+          font:
+            size: .8rem
+  .header_slide
+    max-height: 1000px
+    overflow: hidden
+    a
+      border-radius: 30px
+      border: 2px solid #ffffff
+      padding: 1rem 2rem
+      max-width: 15rem
+      margin: 2rem auto
+      transition: color 1s, background-color 1s, transform 2s
+      &:hover
+        background: #000
+    &__text
+      position: absolute
+      width: 100%
+      height: 100%
+      top: 0
+      display: flex
+      justify-content: center
+      flex-direction: column
+      text-align: center
+      color: #ffffff
+      @media(max-width:800px)
+        height: auto
+        top: none
+        bottom: 0
+      .line
+        font:
+          size: 2rem
+        line-height: 1
+        i
+          margin: 0 .2rem
+      h1
+        padding: 0
+        margin: 0
+        @media(max-width:800px)
+          font:
+            size: 1.5rem
+      h3
+        width: 32%
+        margin: 0 auto
+        font:
+          size: 1.3rem
+        @media(max-width:760px)
+          width: 100%
+          font:
+            size: 1rem
+    img
+      width: 100%
+      margin: 0
+      object-fit: fill

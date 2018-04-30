@@ -1,0 +1,40 @@
+.design
+  
+  &__img
+    position: relative
+    max-height: 40rem
+    overflow: hidden
+    img
+      transition: width 2s, margin 2s,  transform 2s
+      width: 100%
+  .element
+    &:hover
+      .design__img
+        img
+          transition: width 2s, margin 2s,  transform 2s
+          width: 110%
+          margin: -10% 0 0 0
+    .design__info-text
+      color: #ffffff
+      position: absolute
+      bottom: 0
+      width: 100%
+      padding: 1rem 2rem
+      box-sizing: border-box
+      background: rgba(255, 255, 255, 0)
+      background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.35) 75%, rgba(255, 255, 255, 0.47) 100%)
+      background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(75%, rgba(255, 255, 255, 0.35)), color-stop(100%, rgba(255, 255, 255, 0.47)))
+      background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.35) 75%, rgba(255, 255, 255, 0.47) 100%)
+      background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.35) 75%, rgba(255, 255, 255, 0.47) 100%)
+      background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.35) 75%, rgba(255, 255, 255, 0.47) 100%)
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.35) 75%, rgba(255, 255, 255, 0.47) 100%)
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0 )
+      p
+        &.strong
+          font:
+            weight: bold
+            size: 2rem
+    .design__text-footer
+      padding: 1rem 2rem
+      font:
+        size: 1.3rem

@@ -1,0 +1,42 @@
+section
+  &.parallax-section
+    padding-top: 2rem
+    background: #f0f0f1
+    .parallax-section__text
+      margin-top: 2rem
+      color: #404044
+      h3
+        color: #404044
+  .pictures
+    position: relative
+    height: 570px
+    &:after
+      @extend .after
+    img
+      width: auto
+  .parallax-container
+    position: absolute
+    height: 100%
+    left: 2%
+    transform-style: preserve-3d
+
+  .parallax-base
+    transform-style: preserve-3d
+    .parallax-1
+      position: absolute
+      top: 2rem
+      transform: translateZ(0px)
+      box-shadow: -5px 0px 43px 0px rgba(0,0,0,0.87)
+    .parallax-2
+      position: absolute
+      transform: translateZ(100px)
+      top: 10rem
+      left: 40%
+      box-shadow: -5px 0px 43px 0px rgba(0,0,0,0.87)
+    @media(max-width: 800px)
+      .parallax-1,.parallax-2
+        position: relative
+        top: 0
+        width: 50%
+        left: 0
+  
