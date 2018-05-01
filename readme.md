@@ -6,9 +6,13 @@ MODX-REVO- Сайт УЖК
 ####Директория
 *****
 >dir /font
+>
 >dir /img
+>
 >dir /libs
+>
 >dir /js
+>
 >dir /sass
 >>dir /box
 
