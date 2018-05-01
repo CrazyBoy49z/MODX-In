@@ -2,12 +2,12 @@ MODX-REVO- Сайт УЖК
 =======================
 
 > Шаблон построен на Materialize в связке с sass
-    dir /font
-    dir /img
-    dir /libs
-    dir /js
-    dir /sass
-        dir /box
+>    dir /font
+>    dir /img
+>    dir /libs
+>    dir /js
+>    dir /sass
+>        dir /box
 
 Авторизаци Компоненты и страницы
 -------------------------------
