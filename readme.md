@@ -16,16 +16,20 @@ MODX-REVO- Сайт УЖК
 >dir /sass
 >>dir /box
 
-Авторизаци Компоненты и страницы
+###MODX_TPL
+********
+>В папке(modx_tpl) находится уже шаблоны с готовыми полями
+
+Авторизация Компоненты и страницы
 -------------------------------
-###Сниппет Register:
+###Шаблон--Регистрация--Страница(8)
 ***************
 ```
 [[!Register?
     &submitVar=`register-btn` 
     <!--указывает атрибут name тега input[type=submit]. То есть сниппет сработает, только если отправлена форма кнопкой с определенным именем.-->
     &activationResourceId=`27`
-    <!--Активация пользователя->>
+    <!--Активация пользователя-->
     &activationEmailTpl=`Email.Activation`
     <!--Письмо активации-->
     &activationEmailSubject=`Вы зарегистрированы на сайте example.com`
@@ -48,7 +52,20 @@ MODX-REVO- Сайт УЖК
 ```
 ***************
 
-###myLoginChunk
+###Шаблон--Авторизация--Страница(13)
+***********
+```
+[[!Login? 
+  &tplType=`modChunk`
+  &loginTpl=`myLoginChunk`
+  &logoutTpl=`myLogoutChunk`
+  &errTpl=`lgnErrTpl` 
+  &redirectToPrior=`1`
+]]
+```
+***********
+
+###Чанк myLoginChunk
 ***************
 ```
 <h5 class='indigo-text'>[[+actionMsg]]</h5>
@@ -85,14 +102,14 @@ MODX-REVO- Сайт УЖК
 ```
 ***************
 
-###myLgnErrTpl
+###Чанк myLgnErrTpl
 ***************
 ```
 <p class="error">[[+msg]]</p>
 ```
 ***************
 
-###myLogoutChunk
+###Чанк myLogoutChunk
 ***************
 ```
 <div class="row">
@@ -110,7 +127,7 @@ MODX-REVO- Сайт УЖК
 ```
 ***************
 
-###Страница Восстановления пароля
+###Страница--Восстановления пароля--Страница(10)
 ***************
 ```
 [[!ResetPassword:empty=`
@@ -128,3 +145,81 @@ MODX-REVO- Сайт УЖК
 
 ```
 ***************
+
+###Чанк mylgnForgotPassTpl
+****************
+```
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-lg-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading"><i class="glyphicon glyphicon-erase"></i> [[%login.forgot_password]]</div>
+        <div class="panel-body">
+          <div class="text-danger">[[+loginfp.errors]]</div>
+          
+          <form class="form-horizontal" action="[[~[[*id]]]]" method="post">
+            <div class="form-group">
+              <label for="username" class="col-sm-4 control-label">[[%login.username]]</label>
+              <div class="col-sm-8">
+                <input type="text" name="username" class="form-control" id="username" value="[[+loginfp.post.username]]">
+              </div>      
+            </div>
+            <p>[[%login.or_forgot_username]]</p>
+            <div class="form-group">
+              <label for="username" class="col-sm-4 control-label">[[%login.email]]</label>
+              <div class="col-sm-8">
+                <input type="text" name="email" class="form-control" id="email" value="[[+loginfp.post.email]]">
+              </div>      
+            </div>            
+            <input class="returnUrl" type="hidden" name="returnUrl" value="[[+loginfp.request_uri]]" />
+            <input class="loginFPService" type="hidden" name="login_fp_service" value="forgotpassword" />
+            <input type="submit" value="[[%login.reset_password]]" name="login_fp" id="login_fp" class="btn btn-primary pull-right">            
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+********
+
+###Чанк mylgnForgotPassSentTpl
+*********
+```
+<p>Инструкция по сбросу пароля была отправлена на Ваш почтовый адрес ([[+email]]).</p>
+```
+*********
+
+###Чанк mylgnForgotPassEmail
+**********
+```
+<p>Здравствуйте.</p>
+<p>Для активации нового пароля, пожалуйста, перейдите по следующей ссылке:</p>
+<p><a href="[[+confirmUrl]]">[[+confirmUrl]]</a></p>
+<p>В случае успеха, вы можете использовать следующий пароль для входа:</p>
+<p><strong>Имя: </strong>[[+username]]</p>
+<p><strong>Пароль: </strong> [[+password]]</p>
+<p>Если Вы не запрашивали это сообщение, то просто проигнорируйте его.</p>
+ 
+<p>Спасибо,<br>
+<em>Администратор сайта</em></p>
+```
+**********
+
+###Чанк mylgnResetPassTpl
+***********
+```
+<div class="loginResetPass">
+<p class="loginResetPassHeader">[[+username]],</p>
+<p class="loginResetPassText">Ваш пароль успешно сброшен. Пожалуйста перейдите на страницу <a href="[[+loginUrl]]">"Авторизация"</a> для входа.</p>  
+</div>
+```
+************
+
+###Чанк mylgnExpiredTpl
+************
+```
+<p><strong>Информация о сбросе пароля</strong></p>
+<p>Ваш пароль уже сброшен или срок действия ссылки уже истёк. Если вам нужно сбросить пароль, то перейдите по следующей <a href="[[~11]]">ссылке</a>.</p>
+```
+*************
