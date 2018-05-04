@@ -1,2 +1,68 @@
-.header_top
+.header
+	.row
+		@extend .f-row
+		justify-content: space-between
+		&::after
+			display: none
+	&__contact
+		width: 270px
+		@extend .f-col
+		a
+			font:
+				size: 1rem
+				weight: 600
+			&::before
+				content: ''
+				width: 15px
+				height: 15px
+				display: block
+				margin-right: 7px
+				display: block
+				float: left
+				margin-top: 10px
+			&:nth-child(1)
+				&:before
+					content: ''
+					+bg(phone)
+					width: 15px
+					height: 15px
+			&:last-child
+				&:before
+					+bg(post)
+					background-repeat: no-repeat
+nav
+	background: $gray
+	.nav-wrapper
+		display: flex
+		justify-content: space-between
+	li
+		a
+			font:
+				size: .7rem
+			@extend .up
+			padding-left: 2rem
+			padding-right: 2rem
+	.sisea-search-form
+		margin-top: 5px
+		height: auto
+		width: 280px !important
+		display: flex
+		justify-content: center
+		align-items: center
+		position: relative
+		input
+			background: #ffffff !important
+			height: auto !important
+			padding: 9px !important
+			border-radius: .85rem !important
+		button
+			position: absolute
+			right: 10px
+			top: 0px
+			background: transparent
+			border: 0
+			img
+				width: auto
+
+
   
