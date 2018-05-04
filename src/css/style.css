@@ -89,7 +89,7 @@ a {
 
 main .container {
   width: 100% !important;
-  max-width: 1170px;
+  max-width: 1030px;
   margin: 0 auto; }
 
 main > div {
@@ -110,6 +110,7 @@ h2 {
     width: 33px;
     height: 34px;
     background-image: url("../img/before.png");
+    background-repeat: no-repeat;
     float: left;
     margin: 10px 0 0; }
 
@@ -122,6 +123,10 @@ p {
 
 /*База*/
 /*********************/
+@media (max-width: 960px) {
+  .header .logo img {
+    width: 100%; } }
+
 .header .row {
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
@@ -294,12 +299,16 @@ nav {
       background: #da281c; }
 
 .advant {
-  padding-top: 3.4rem; }
+  padding-top: 3.4rem;
+  padding-bottom: .7rem; }
+  .advant .f-row, .advant .header .row, .header .advant .row, .advant .ele {
+    margin-top: .2rem; }
   .advant .ele {
     width: 33%;
-    margin-bottom: 1rem; }
+    margin-bottom: 2.5rem; }
     .advant .ele div:last-child {
       max-width: 70%;
+      margin-left: 4%;
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -320,6 +329,60 @@ nav {
       .advant .ele div:last-child p strong {
         text-transform: uppercase;
         font-weight: 600; }
+
+.cnn {
+  border: 0.05rem solid #c5c5c5;
+  background: #f3f3f3;
+  padding-top: 2.1rem;
+  padding-bottom: 2rem; }
+  .cnn .f-row, .cnn .header .row, .header .cnn .row, .cnn .uslugi .ele, .uslugi .cnn .ele, .cnn .advant .ele, .advant .cnn .ele {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+  .cnn .new {
+    width: 29%; }
+    .cnn .new .img {
+      height: 8.6rem;
+      overflow: hidden; }
+      .cnn .new .img img {
+        margin: 0 auto; }
+    .cnn .new .data {
+      margin-top: .6rem;
+      font-size: .7rem;
+      font-weight: 400;
+      color: #8c8d8d; }
+    .cnn .new .h1 {
+      font-size: .7rem;
+      font-weight: bold;
+      color: #2e2f2f; }
+    .cnn .new p {
+      font-size: .7rem;
+      color: #2e2f2f; }
+    .cnn .new a {
+      text-decoration: underline;
+      color: #da281c;
+      font-size: .7rem;
+      float: right; }
+  .cnn a.up, .cnn nav li a, nav li .cnn a {
+    text-align: center;
+    padding: 10px 30px;
+    max-width: 165px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 33px;
+    font-size: .7rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: #da281c; }
+
+.partner {
+  padding: 1.8rem;
+  border: 0.05rem solid #c5c5c5; }
+  .partner .part {
+    margin-top: 1.5rem; }
+    .partner .part .item img {
+      width: auto; }
 
 /************************/
 footer {
