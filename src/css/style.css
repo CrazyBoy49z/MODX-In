@@ -11,10 +11,10 @@
 
 /*********************/
 /*mixin*/
-.up, nav li a {
+.up, nav li a, .call_back form button {
   text-transform: uppercase; }
 
-.f-row, .header .row {
+.f-row, .header .row, .uslugi .ele, .advant .ele {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -97,6 +97,24 @@ main > div {
   -webkit-background-size: cover;
           background-size: cover;
   background-position: center; }
+
+h2 {
+  color: #2e2f2f;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 3.6rem;
+  text-transform: uppercase; }
+  h2::before {
+    content: '';
+    width: 33px;
+    height: 34px;
+    background-image: url("../img/before.png");
+    float: left;
+    margin: 10px 0 0; }
+
+p {
+  font-size: .8rem; }
 
 #map {
   height: 30rem;
@@ -181,6 +199,127 @@ nav {
       border: 0; }
       nav .sisea-search-form button img {
         width: auto; }
+
+.slide img {
+  margin: 0; }
+
+.slide .container {
+  position: relative; }
+
+.slide .signature {
+  position: absolute;
+  bottom: 0;
+  width: 71%;
+  right: 0;
+  float: right;
+  background: #da281c;
+  color: #ffffff;
+  text-align: right;
+  padding: 12px 45px;
+  font-weight: 700;
+  font-size: 1.5rem; }
+
+.uslugi {
+  padding-bottom: 4.8rem; }
+  .uslugi .ele {
+    width: 100%;
+    max-width: 30%;
+    margin: 1rem 1%;
+    -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+    margin-bottom: 1rem; }
+    .uslugi .ele img {
+      width: 100%; }
+    .uslugi .ele > div:last-child {
+      width: 75%;
+      margin-left: 5%;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: start;
+      -webkit-justify-content: flex-start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      color: #2e2f2f;
+      text-align: left;
+      font-size: .8rem; }
+
+.call_back {
+  background-image: url("../img/3-layers.png");
+  color: #ffffff;
+  padding: 2.1rem 0 2.8rem; }
+  .call_back .h1 {
+    font-size: 3.6rem;
+    font-weight: 600;
+    text-align: center; }
+  .call_back .h2 {
+    font-size: 2.4rem;
+    font-weight: 600;
+    text-align: center; }
+  .call_back form {
+    margin-top: 2.9rem; }
+    .call_back form .row {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center; }
+    .call_back form .input-field {
+      margin: 0 !important; }
+      @media (min-width: 1200px) {
+        .call_back form .input-field {
+          max-width: 340px; } }
+    .call_back form input {
+      background: #ffffff !important;
+      height: 43px !important; }
+    .call_back form label {
+      margin-top: -.1rem;
+      padding-left: .9rem;
+      font-size: .8rem;
+      font-color: #2e2f2f; }
+    .call_back form button {
+      width: 100%;
+      font-size: .7rem;
+      font-weight: 600;
+      height: 43px !important;
+      background: #da281c; }
+
+.advant {
+  padding-top: 3.4rem; }
+  .advant .ele {
+    width: 33%;
+    margin-bottom: 1rem; }
+    .advant .ele div:last-child {
+      max-width: 70%;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: start;
+      -webkit-align-items: flex-start;
+          -ms-flex-align: start;
+              align-items: flex-start; }
+      .advant .ele div:last-child p strong {
+        text-transform: uppercase;
+        font-weight: 600; }
 
 /************************/
 footer {

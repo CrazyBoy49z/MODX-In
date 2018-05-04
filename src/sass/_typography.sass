@@ -36,7 +36,24 @@ main
 		background-size: cover
 		background-position: center
 
-		
+h2
+	color: $g-easy
+	margin: 0 auto
+	font:
+		size: 1.2rem
+		weight: 600
+	line-height: 3.6rem
+	text-transform: uppercase
+	&::before
+		content: ''
+		width: 33px
+		height: 34px
+		+bg(before)
+		float: left
+		margin: 10px 0 0
+p
+	font:
+		size: .8rem
 #map
 	height: 30rem
 	width: 100%
