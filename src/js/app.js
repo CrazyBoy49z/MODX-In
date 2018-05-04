@@ -10,35 +10,22 @@ $(function(){
   }
 });
 
-
-
-function cssParallax(cont, el, radiusVal){
-  $(cont).mousemove(function(event) {
-      
-      cx = Math.ceil($(window).width() / 2);
-      cy = Math.ceil($(window).height() / .5);
-      dx = event.pageX - cx;
-      dy = event.pageY - cy;
-      
-      tiltx = (dy / cy);
-      tilty = - (dx / cx);
-      radius = Math.sqrt(Math.pow(tiltx,2) + Math.pow(tilty,2));
-      degree = (radius * radiusVal);
-
-      $(el, cont).css('-webkit-transform','rotate3d(' + tiltx + ', ' + tilty + ', 0, ' + degree + 'deg)');
-      $(el, cont).css('transform','rotate3d(' + tiltx + ', ' + tilty + ', 0, ' + degree + 'deg)');
-  });
-}
-
-$(document).ready(function() {
-  cssParallax('body', '.parallax-base', 20);
-  cssParallax('.parallax-container.first', '.parallax-base', 20);
-});
-
-
-
-
-
+$('.owl-carousel.slide').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:1
+        }
+    }
+})
 
 $(document).ready(function(){
 		$('.sidenav').sidenav();
@@ -48,59 +35,8 @@ $(document).ready(function(){
 			startingTop: '50%',
 			endingTop: '0%'
 		});
-		$('.timepicker').timepicker();
-		$('.datepicker').datepicker({
-			i18n: {
-				weekdaysAbbrev: ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
-				autoClose: true,
-				cancel: 'Закрыть',
-				weekdaysShort: ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
-				months: [
-					'Январь',
-					'Февраль',
-					'Март',
-					'Апрель',
-					'Май',
-					'Июнь',
-					'Июль',
-					'Август',
-					'Сентябрь',
-					'Октябрь',
-					'Ноябрь',
-					'Декабрь'
-				],
-				monthsShort:[
-					'Январь',
-					'Февраль',
-					'Март',
-					'Апрель',
-					'Май',
-					'Июнь',
-					'Июль',
-					'Август',
-					'Сентябрь',
-					'Октябрь',
-					'Ноябрь',
-					'Декабрь'
-				]
-			},
-			
-		});
 	});
 	
-	function initMap() {
-		var myLatLng = {lat: 55.859102, lng: 37.474239};
 	
-		var map = new google.maps.Map(document.getElementById('map'), {
-			zoom: 17,
-			center: myLatLng
-		});
-	
-		var marker = new google.maps.Marker({
-			position: myLatLng,
-			map: map,
-			title: 'ЖКХ'
-		});
-	}
 
 

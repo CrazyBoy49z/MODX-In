@@ -11,12 +11,41 @@
 
 /*********************/
 /*mixin*/
+.up {
+  text-transform: uppercase; }
+
+.f-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
+
+.img-classic {
+  width: auto; }
+
 /*mixin*/
 /*********************/
 /*База*/
-@media (max-width: 480px) {
-  html {
-    font-size: 12px; } }
+html {
+  font-size: 20px; }
+  @media (max-width: 480px) {
+    html {
+      font-size: 12px; } }
+
+body {
+  font-family: "Open Sans", sans-serif; }
 
 img,
 iframe {
@@ -28,7 +57,11 @@ iframe {
 
 /*Обязательный параметр!!!!!!!!*/
 a {
-  color: #dedfdf; }
+  color: #000000;
+  font-family: "Open Sans", sans-serif; }
+
+main .container {
+  max-width: 1170px; }
 
 main > div {
   background-repeat: no-repeat;
