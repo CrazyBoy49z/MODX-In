@@ -117,6 +117,34 @@ MODX-REVO- Сайт VOGSS
   </div>
 </div>
 ```
+>
+>
+#### &tvname--uslugi--migx
+-------------
+Вкладки формы:
+*******
+```
+[{"caption":"Item", "fields": 
+  [
+   {"field":"set","caption":"Заголовок"},
+   {"field":"desc","caption":"Описание"}, 
+   {"field":"image","caption":"Изображение","inputTVtype":"image"}
+  ]
+}]
+```
+Разметка колонок:
+*******
+```
+[
+ {"header": "Заголовок", "sortable": "true", "dataIndex": "set"},
+ {"header": "Подзаголовок", "sortable": "true", "dataIndex": "desc"},
+ {
+  "header": "Изображение", "sortable": "false", "dataIndex": 
+  "image","renderer": "this.renderImage"
+  }
+]
+```
+
 ********************
 
 ### Быстрый вызов call_back
