@@ -1,10 +1,11 @@
-MODX-REVO- Сайт УЖК
+MODX-REVO- Сайт VOGSS
 =======================
 
-> Шаблон построен на Materialize в связке с sass
-******
+> Верстка построен на Materialize в связке с sass
+******************
+
 ####Директория
-*****
+******************
 >dir /font
 >
 >dir /img
@@ -17,217 +18,318 @@ MODX-REVO- Сайт УЖК
 >>dir /box
 
 ###MODX_TPL
-********
->В папке(modx_tpl) находится уже шаблоны с готовыми полями
+******************
 
-Авторизация Компоненты и страницы
+Модули для сайта
 -------------------------------
-###Шаблон--Регистрация--Страница(8)
-***************
+### Шапка header Модуль
+******************
 ```
-[[!Register?
-    &submitVar=`register-btn` 
-    <!--указывает атрибут name тега input[type=submit]. То есть сниппет сработает, только если отправлена форма кнопкой с определенным именем.-->
-    &activationResourceId=`27`
-    <!--Активация пользователя-->
-    &activationEmailTpl=`Email.Activation`
-    <!--Письмо активации-->
-    &activationEmailSubject=`Вы зарегистрированы на сайте example.com`
-    &placeholderPrefix=`reg.`
-    <!--указывает, что все плейсхолдеры, за редким исключением (об этом дальше), которые создаются в данном сниппете, должны начинаться с «reg.».-->
-    &successMsg=`<div class="alert alert-success">Спасибо за регистрацию. На вашу электронную почту <b>[[!+reg.email]]</b> отправлено письмо со ссылкой на активацию аккаунта. Пройдите по этой ссылке, чтобы завершить регистрацию. </div>`
-    &usernameField=`email`
-    <!--указывает, что в качестве имени пользователя будет использоваться поле email.-->
-    &usergroupsField=`reg_type`
-    <!--определяет поле, устанавливающее группу, в которую будет добавлен новый пользователь.-->
-    &customValidators=`valueIn`
-    &validate=`username:blank,
-        reg_type:valueIn=^Readers;Writers;Idlers ^,
-        fullname:required:minLength=^6^,
-        password:required:minLength=^6^,
-        password_confirm:password_confirm=^password^,
-        email:required:email`
-    ]]
-[[!+error.message:default=`[[!$Register.Form]]`]]
-```
-***************
-
-###Шаблон--Авторизация--Страница(13)
-***********
-```
-[[!Login? 
-  &tplType=`modChunk`
-  &loginTpl=`myLoginChunk`
-  &logoutTpl=`myLogoutChunk`
-  &errTpl=`lgnErrTpl` 
-  &redirectToPrior=`1`
-]]
-```
-***********
-
-###Чанк myLoginChunk
-***************
-```
-<h5 class='indigo-text'>[[+actionMsg]]</h5>
-<form class="col s12 l12 " action="[[~[[*id]]]]" method="POST">
-  <div class="row">
-    <div class="input-field col s12">
-      <input type="text" class="validate" name="username" id="username">
-      <label for="username">[[%login.username]]</label>
-    </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s12">
-      <input id="password" type="password" name="password" class="validate">
-      <label for="password">[[%login.password]]</label>
-    </div>
-  </div>
-  <div class="row">
-      <input class="returnUrl" type="hidden" name="returnUrl" value="[[+request_uri]]" />
-      <input class="loginLoginValue" type="hidden" name="service" value="login">
-  </div>
-  <div class="row">
-      <div class="input-field col s12">
-          <input type="submit" value="[[+actionMsg]]" name="Login" id="Login" class="btn btn-primary pull-right col l12 s12">
-      </div>
-      <div class="input-field col s12">
-        <div class="divider"></div>
-      <a href="[[~22]]" style='color: white !important' class="btn btn-link red darken-3 white-text pull-right col s6 l6">Зарегистрироваться</a>
-      <a href="[[~19]]" style='color: white !important' class="btn btn-link blue-grey lighten-3 white-text pull-right col s6 l6">Забыли пароль?</a>
+<header class="header">
+  <div class="container">
+    <div class="row">
+      <a href="#" class="logo">
+        <img class="img-classic" src="img/logo.png" alt="Pictures">
+      </a>
+      <div class="header__contact">
+        <a href="tel:880006006">+7 (8442) 550-222</a>
+        <a href="tel:880006006">+7 (8442) 550-330</a>
+        <a href="mailto:in_box@vogss.ru">E-mail:in_box@vogss.ru</a>
       </div>
     </div>
+  </div>
+</header>
+```
+*****************
 
-  
-</form>
+### Навигация NAV Меню
+***********************
 ```
-***************
+<nav>
+  <div class="container">
+    <div class="nav-wrapper">
+      <ul id="nav-mobile" class="hide-on-med-and-down">
+        <li><a href="sass.html">Главная</a></li>
+        <li><a href="badges.html">Услуги</a></li>
+        <li><a href="collapsible.html">новости </a></li>
+        <li><a href="collapsible.html">База знаний </a></li>
+        <li><a href="collapsible.html">контакты</a></li>
+      </ul>
+      <form class="sisea-search-form" action="[[~[[*id]]]]"  method="get">
+          <input type="text" name="query" class="input-xlarge search-query" value="" placeholder="Введите запрос">
+          <button type="submit" class="btn-success"><img src="img/search.png" alt=""></button>
+      </form>
+    </div>
+  </div>
+</nav>
+```
+***********************
 
-###Чанк myLgnErrTpl
-***************
+### Слайдер Carusel-Slide
+***********************
 ```
-<p class="error">[[+msg]]</p>
+<div class="owl-carousel owl-theme slide">
+  <div class="item">
+    <img src="img/slide.png" alt="">
+    <div class="container">
+        <div class="signature up">Практика готовых решений с 1995 года</div>
+    </div>
+    
+  </div>
+</div>
 ```
-***************
+**********************
 
-###Чанк myLogoutChunk
-***************
+### Контент info_block
+**********************
 ```
-<div class="row">
-	<div class="col l12 s12">
-			<div class="s6 l6 blue-text">
-				<span>Пользователь: [[!+modx.user.username]] </span>
-					<div class="loginMessage">[[+errors]]</div>
-			</div>
-	</div>
-		<hr style="margin-top:8px; margin-bottom:8px;">
-		<div class="col s12 m4 l3"><p></p></div>
-    <div class="col s12 m4 l6 red darken-2"><i class="material-icons Medium col l3 s6">info</i><a class="col l6 s6 white-text" style='color: #fff !important' href="[[+logoutUrl]]" title="[[+actionMsg]]">[[+actionMsg]]</a></p></div>
-    <div class="col s12 m4 l3"><p>s12 m4</p></div>
-	</div>
+<div class="info_block">
+  <div class="container">
+    <h2>О компании</h2>
+    <p>Фирма “VOGSS” начала свою деятельность с 26 января 1995 года и добилась значительных успехов на рынке, став заметной фигурой среди Волгоградских поставщиков компьютерной техники, офисного и сетевого оборудования и сетевых решений. На сегодняшний день фирма "VOGSS” является крупнейшим в Волгограде системным интегратором, предоставляющим своим клиентам полный спектр услуг по созданию комплексных компьютерных, сетевых, информационных и телефонных систем для всех сфер деятельности и ориентирована на удовлетворение самых взыскательных запросов рынка на высококачественную технику и услуги по сервису поставленного оборудования.
+      </p>
+  </div>
+</div>
 ```
-***************
+***********************
 
-###Страница--Восстановления пароля--Страница(10)
-***************
+### Услуги uslugi
+***********************
 ```
-[[!ResetPassword:empty=`
-  [[!ForgotPassword?  
-    &resetResourceId=`[[*id]]`
-    &loginResourceId=`29`
-    &tpl=`mylgnForgotPassTpl`
-    &sentTpl=`mylgnForgotPassSentTpl`
-    &emailTpl=`mylgnForgotPassEmail`
-    &emailSubject=`Восстановление пароля`
-  ]]`? &tpl=`mylgnResetPassTpl`
-       &expiredTpl=`mylgnExpiredTpl`
-       &loginResourceId=`29`
-]]
+<div class="uslugi">
+  <div class="container">
+    <h2>Услуги</h2>
+    <div class="f-row">
+      [[!getImageList?
+        &tvname=`uslugi`
+        &tpl=`@CODE:
+        <div class="ele">
+          <div>
+      		<img src="[[+image]]" alt="[[+set]]">
+          </div>
+          <div>
+            [[+desc]]
+      	  </div>
+        </div>
+        `
+      ]]
+  </div>
+  </div>
+</div>
+```
+********************
 
+### Быстрый вызов call_back
+********************
 ```
-***************
-
-###Чанк mylgnForgotPassTpl
-****************
-```
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 col-lg-6">
-      <div class="panel panel-primary">
-        <div class="panel-heading"><i class="glyphicon glyphicon-erase"></i> [[%login.forgot_password]]</div>
-        <div class="panel-body">
-          <div class="text-danger">[[+loginfp.errors]]</div>
-          
-          <form class="form-horizontal" action="[[~[[*id]]]]" method="post">
-            <div class="form-group">
-              <label for="username" class="col-sm-4 control-label">[[%login.username]]</label>
-              <div class="col-sm-8">
-                <input type="text" name="username" class="form-control" id="username" value="[[+loginfp.post.username]]">
-              </div>      
+<div class="call_back">
+  <div class="container">
+    <div class="h1 up">есть задача? </div>
+    <div class="h2 up">найдем лучшее решение!</div>
+    <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col xl4 s12">
+              <input id="icon_prefix" type="text" class="validate">
+              <label for="icon_prefix">First Name</label>
             </div>
-            <p>[[%login.or_forgot_username]]</p>
-            <div class="form-group">
-              <label for="username" class="col-sm-4 control-label">[[%login.email]]</label>
-              <div class="col-sm-8">
-                <input type="text" name="email" class="form-control" id="email" value="[[+loginfp.post.email]]">
-              </div>      
-            </div>            
-            <input class="returnUrl" type="hidden" name="returnUrl" value="[[+loginfp.request_uri]]" />
-            <input class="loginFPService" type="hidden" name="login_fp_service" value="forgotpassword" />
-            <input type="submit" value="[[%login.reset_password]]" name="login_fp" id="login_fp" class="btn btn-primary pull-right">            
-          </form>
+            <div class="input-field col xl4 s12">
+              <input id="icon_telephone" type="tel" class="validate">
+              <label for="icon_telephone">Telephone</label>
+            </div>
+            <div class="input-field col xl2 s12">
+                <button type="submit" class="btn">Спросить</button>
+              </div>
+          </div>
+        </form>
+      </div>
+  </div>
+</div>
+```
+*******************
+
+### Преимущество advant
+*******************
+```
+<div class="advant">
+  <div class="container">
+    <h2>наши преимущества</h2>
+    <div class="f-row">
+      <div class="ele">
+        <div>
+          <img  src="img/a_ele1.png" alt="">
+        </div>
+        <div>
+          <p> <strong>«Все из одних рук»</strong> </br>От проекта , поставки , 
+              инсталяции до сопровождения</p>
         </div>
       </div>
+
+      <div class="ele">
+        <div>
+          <img  src="img/a_ele2.png" alt="">
+        </div>
+        <div>
+          <p> <strong>надежность</strong> </br> 22 года стабильной 
+              <br>	работы</p>
+        </div>
+      </div>
+
+      <div class="ele">
+        <div>
+          <img  src="img/a_ele3.png" alt="">
+        </div>
+        <div>
+          <p> <strong>опыт работы</strong> </br> с государственными и
+              коммерческими заказчиками </p>
+        </div>
+      </div>
+    
+      <div class="ele">
+        <div>
+          <img  src="img/a_ele4.png" alt="">
+        </div>
+        <div>
+          <p> <strong>Компетентность и профессионализм</strong> </p>
+        </div>
+      </div>
+
+      <div class="ele">
+        <div>
+          <img  src="img/a_ele5.png" alt="">
+        </div>
+        <div>
+          <p><strong>Доставка по РФ</strong> </p>
+        </div>
+      </div>
+      
+      <div class="ele">
+        <div>
+          <img  src="img/a_ele6.png" alt="">
+        </div>
+        <div>
+          <p><strong>Гибкие условия оплаты</strong> </p>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
 ```
-********
+*********************
 
-###Чанк mylgnForgotPassSentTpl
-*********
+### Новостной блок cnn
+*********************
 ```
-<p>Инструкция по сбросу пароля была отправлена на Ваш почтовый адрес ([[+email]]).</p>
-```
-*********
+<div class="cnn">
+<div class="container">
+  <h2>новости</h2>
+  <div class="f-row">
+    <div class="new">
+      <div class="img">
+        <img  src="img/layer-205.png" alt="">
+      </div>
+      <div class="data">13.09.2017</div>
+      <div class="h1">Распродажа складских остатков кабеля</div>
+      <p>Распродаем складские остатки кабеля.
+        Кабель ВВГнг 5х16 мм 350руб/м - (Остаток 380 м)</p>
+      <a href="#">подробнее</a>
+    </div>
+    <div class="new">
+      <div class="img">
+          <img  src="img/layer-205.png" alt="">
+      </div>
+      <div class="data">13.09.2017</div>
+      <div class="h1">Распродажа складских остатков кабеля</div>
+      <p>Распродаем складские остатки кабеля.
+        Кабель ВВГнг 5х16 мм 350руб/м - (Остаток 380 м)</p>
+      <a href="#">подробнее</a>
+    </div>
+    <div class="new">
+      <div class="img">
+          <img  src="img/layer-205.png" alt="">
+      </div>
+      <div class="data">13.09.2017</div>
+      <div class="h1">Распродажа складских остатков кабеля</div>
+      <p>Распродаем складские остатки кабеля.
+        Кабель ВВГнг 5х16 мм 350руб/м - (Остаток 380 м)</p>
+      <a href="#">подробнее</a>
+    </div>
 
-###Чанк mylgnForgotPassEmail
-**********
-```
-<p>Здравствуйте.</p>
-<p>Для активации нового пароля, пожалуйста, перейдите по следующей ссылке:</p>
-<p><a href="[[+confirmUrl]]">[[+confirmUrl]]</a></p>
-<p>В случае успеха, вы можете использовать следующий пароль для входа:</p>
-<p><strong>Имя: </strong>[[+username]]</p>
-<p><strong>Пароль: </strong> [[+password]]</p>
-<p>Если Вы не запрашивали это сообщение, то просто проигнорируйте его.</p>
- 
-<p>Спасибо,<br>
-<em>Администратор сайта</em></p>
-```
-**********
-
-###Чанк mylgnResetPassTpl
-***********
-```
-<div class="loginResetPass">
-<p class="loginResetPassHeader">[[+username]],</p>
-<p class="loginResetPassText">Ваш пароль успешно сброшен. Пожалуйста перейдите на страницу <a href="[[+loginUrl]]">"Авторизация"</a> для входа.</p>  
+  </div>
+  <a href="#" class="up">Все новости</a>
+</div>
 </div>
 ```
-************
+********************
 
-###Чанк mylgnExpiredTpl
-************
+### PARTNER
+********************
 ```
-<p><strong>Информация о сбросе пароля</strong></p>
-<p>Ваш пароль уже сброшен или срок действия ссылки уже истёк. Если вам нужно сбросить пароль, то перейдите по следующей <a href="[[~11]]">ссылке</a>.</p>
+<div class="partner">
+  <div class="container">
+    <h2>наши партнеры</h2>
+    <div class="owl-carousel owl-theme part">
+      
+      <div class="item">
+          <img src="img/layer-208.png" alt="">
+        </div>
+        <div class="item">
+            <img src="img/layer-209.png" alt="">
+          </div>
+          <div class="item">
+              <img src="img/layer-210.png" alt="">
+            </div>
+            <div class="item">
+                <img src="img/layer-211.png" alt="">
+              </div>
+              <div class="item">
+                  <img src="img/layer-212.png" alt="">
+                </div>
+    </div>
+  </div>
+</div>
 ```
-*************
-*************
->C авторизацией и регистрацией мы пока закончили
->
->Личный кабинет будет ниже.
-*************
+*******************
 
-
----------------
+### Контакты form_call_contact
+*******************
+```
+<div class="form_call_contact">
+  <div class="container">
+    <div class="row">
+    <div class="col xl6 l6 m12 s12">
+      <h2>Контакты</h2>
+      <div class="f-col">
+        <p class="adress"> <strong>Адрес:</strong>  <br>
+          400131, Россия г. Волгоград, ул. Рокоссовского, 28
+        </p>
+        <p class="time">
+            <strong>Время работы: </strong>	<br>
+            9:00 - 17:30, выходной Сб, Вс
+        </p>
+        <p class="phone">
+          <a href="tel:+7 (8442) 550-222">+7 (8442) 550-222</a>,<a href="tel:+7 (8442) 550-222">+7 (8442) 550-330</a>
+        </p>
+        <p class="mail">
+            E-mail: <a href="tel:in_box@vogss.ru">in_box@vogss.ru</a>
+        </p>
+      </div>
+    </div>
+    <div class="col xl6 l6 s12 m12 form right">
+      <div class="h2 up">форма <br>обратной связи </div>
+      <form action="">
+        <input type="text" name="user" placeholder="Введите Ваше имя">
+        <input type="mail" name="mail" placeholder="Введите Ваш E-mail">
+        <textarea name="info" id=""  rows="5" placeholder="Ваше сообщение"></textarea>
+        <label>
+            <input type="checkbox" class="filled-in" checked="checked" />
+            <span>Согласие на обработку персональных данных</span>
+          </label>
+          <button type="submit" class="btn up">отправить</button>
+      </form>
+    </div>
+  </div>
+  </div>
+</div>
+```

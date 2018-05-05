@@ -7,7 +7,7 @@ html
 	@media(max-width:1200px)
 		font-size: 15px
 	@media(max-width:480px)
-		font-size: 12px
+		font-size: 13px
 
 body
 	font:
@@ -28,10 +28,15 @@ a
 
 main
 	.container
+		overflow: hidden
 		width: 100% !important
 		max-width: 1030px
 		//max-width: 1170px
 		margin: 0 auto 
+		@media(max-width:960px)
+			width: 98%
+			padding: 0 2%
+			box-sizing: border-box
 	&>div
 		background-repeat: no-repeat
 		background-size: cover

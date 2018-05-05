@@ -11,6 +11,7 @@
 	&__contact
 		width: 270px
 		@extend .f-col
+		
 		a
 			font:
 				size: 1rem
@@ -34,8 +35,19 @@
 				&:before
 					+bg(post)
 					background-repeat: no-repeat
+		@media(max-width:960px)
+			width: 100%
+			
+			a
+				margin: 3%
+				&::before
+					display: none
+					margin-top: 0
 nav
 	background: $gray
+	@media(max-width:1210px)
+		.container
+			width: 85%
 	.nav-wrapper
 		display: flex
 		justify-content: space-between
@@ -47,13 +59,16 @@ nav
 			padding-left: 2rem
 			padding-right: 2rem
 	.sisea-search-form
-		margin-top: 5px
+		margin-top: .4rem
 		height: auto
 		width: 280px !important
 		display: flex
 		justify-content: center
 		align-items: center
 		position: relative
+		@media(max-width:960px)
+			width: 90% !important
+			margin-top: .8rem
 		input
 			background: #ffffff !important
 			height: auto !important
